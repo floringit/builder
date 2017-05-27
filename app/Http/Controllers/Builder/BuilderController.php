@@ -20,6 +20,9 @@ class BuilderController extends Controller
     {
         return view('builder.edit', [
             'edit' => true,
+            'jss' => [
+                'components/build.js'
+            ]
         ]);
     }
 }

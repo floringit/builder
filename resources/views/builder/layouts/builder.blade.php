@@ -257,6 +257,11 @@
 
         @yield('content')
 
+
+        <!-- vue js resources -->
+        <script src="{{ URL::asset('js/vue.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue-resource@1.3.3"></script>
+
         <script src="{{ URL::asset('js/jquery-3.1.1.min.js') }}"></script>
         <script src="{{ URL::asset('js/flickity.min.js') }}"></script>
         <script src="{{ URL::asset('js/easypiechart.min.js') }}"></script>
@@ -273,5 +278,12 @@
         <script src="{{ URL::asset('js/spectragram.min.js') }}"></script>
         <script src="{{ URL::asset('js/smooth-scroll.min.js') }}"></script>
         <script src="{{ URL::asset('js/scripts.js') }}"></script>
+
+        <!-- page related js resources -->
+        @if (!empty($jss))
+            @foreach ($jss as $js)
+        <script src="{{ URL::asset('js/' . $js) }}"></script>
+            @endforeach
+        @endif
     </body>
 </html>
