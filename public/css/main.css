@@ -1,0 +1,16 @@
+a.logo-text {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a.logo-text h3 {
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 30px;
+}
+
+.pos-fixed a.logo-text h3,
+.pos-fixed a.logo-text {
+    color: #252525;
+    margin: 0;
+}

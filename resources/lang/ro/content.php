@@ -1,0 +1,32 @@
+<?php
+
+return [
+    'home_title' => 'Construieste-ti un site web gratuit in imobiliare',
+    'menu_dropdown' => 'Site-uri web imobiliare superbe create in minute.',
+    'home_heading' => 'Site web inteligent pentru',
+    'home_type_e' => 'o agentie imobiliara, un agent imobiliar, o zona rezidentiala',
+    'home_type_first' => 'o agentie imobiliara',
+    'home_subheading' => '<b>Site Web, Marketing si Statistici</b> in acelasi loc. <br class="hidden-xs hidden-sm"> Rapid, usor si gratis.',
+    'btn_start' => 'Incepe acum',
+    'rights' => 'Toate drepturile rezervate',
+    'head1' => 'Tot ceea ce ai nevoie pentru a detine un site web uimitor',
+    'subhead1' => 'Webilya ofera site-uri web gratuite, folosire usoara, teme concepute de catre designeri, galerii superbe, optimizari mobile, domenii, colectie de imagine, 
+        gazduire securizata, SEO, 24/7 suport complet si mult mai multe. ',
+    'head2' => 'Poti construi singur folosind Drag&Drop foarte Simplu',
+    'subhead2' => 'Sa iti creezi propiul site web gratuit este mai simplu ca niciodata folosind builder-ul nostru. Nu sunt necesare cunostinte tehnice. Tot ce trebuie sa faci
+        este sa alegi o tema, sa schimbi orice vrei tu, adaugi imagini, video-uri, text si vei ajunge online instant.',
+    'head3' => 'Robust, design detaliat<br class="hidden-xs hidden-sm">de la pixel la cod',
+    'subhead3' => 'Lansarea rapida a unui site web scalabil si atractiv este foarte importanta pentru o companie imobiliara — Webilya ofera aceasta posibilitate simplu si accesibil.',
+    'see_more' => 'Vezi mai multe',
+    'box1' => 'Salveaza timp cu o multitudine de componente construite pentru continutul tau',
+    'box2' => 'Unelte avansate: cautare oferte real time, listari, harti, importare oferte de pe alte platforme',
+    'box3' => 'Platforma completa pentru a crea oferte, statistici, notificari mesaje, comparatii preturi',
+    'name1' => 'Vlad',
+    'name2' => 'Monica',
+    'name3' => 'Paul',
+    'test1' => 'Webilya a facut o treaba grozava facand construirea site-urilor web asa simpla. Si are foarte multe functionalitati.',
+    'test2' => 'Ador site-ul meu web construit cu Webilya. Este superb si afacerea mea a crescut foarte mult.',
+    'test3' => 'Primesc foarte multe comentarii de la oameni despre cat de curat si atragator este site-ul meu. Sunt foarte satisfacut.',
+    'head4' => 'Sa incepem',
+    'subhead4' => 'Incepe sa construiesti pagini superbe in browser-ul tau',
+];
