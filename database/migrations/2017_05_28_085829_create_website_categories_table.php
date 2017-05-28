@@ -16,8 +16,7 @@ class CreateWebsiteCategoriesTable extends Migration
         Schema::create('website_categories', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->string('name', 155);
-            $table->string('display_name', 155);
+            $table->string('key', 155);
             $table->tinyInteger('deleted')->default(0);
 
             $table->timestamps();
