@@ -4,7 +4,13 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Auth\AuthenticationException;
+use Illuminate\Support\Facades\Log;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\Debug\Exception\FatalThrowableError;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
+
 
 class Handler extends ExceptionHandler
 {
@@ -44,6 +50,30 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
+        if ($request->expectsJson()) {
+            if ($exception instanceof ModelNotFoundException) {
+                Log::error($exception->getMessage() . '. WHEN: path: ' . $request->path() . '; Method: ' . $request->getMethod());
+                return response()->apiError(config('constants.ERROR_NOT_FOUND'), __('error.resource_not_found'), 404);
+            }
+
+            if ($exception instanceof NotFoundHttpException) {
+                return response()->apiError(config('constants.ERROR_NOT_FOUND'), __('error.not_found'), 404);
+            }
+
+            if ($exception instanceof AuthorizationException) {
+                return response()->apiError(config('constants.ERROR_AUTHORIZATION'), $exception->getMessage(), 400);
+            }
+
+            if ($exception instanceof MethodNotAllowedHttpException) {
+                return response()->apiError(config('constants.ERROR_METHOD'), __('error.not_allowed'), 405);
+            }
+
+            if ($exception instanceof FatalThrowableError OR $exception instanceof \ErrorException OR $exception instanceof \Exception) {
+                Log::error($exception->getMessage() . '. WHEN: path: ' . $request->path() . '; Method: ' . $request->getMethod());
+                return response()->apiError(config('constants.ERROR_SERVER'), __('error.server'), 500);
+            }
+        }
+
         return parent::render($request, $exception);
     }
 
@@ -57,7 +87,7 @@ class Handler extends ExceptionHandler
     protected function unauthenticated($request, AuthenticationException $exception)
     {
         if ($request->expectsJson()) {
-            return response()->json(['error' => 'Unauthenticated.'], 401);
+            return response()->apiError(config('constants.ERROR_AUTHENTICATION'), __('error.authentication'), 401);
         }
 
         return redirect()->guest(route('login'));
