@@ -200,7 +200,7 @@
                                 </ul>
                             </div>
 
-                            @if (is_null($user))
+                            @if (empty($user))
                             <div class="bar__module">
                                 <a class="btn btn--sm type--uppercase modal-trigger" href="#" data-modal-index="5">
                                     <span class="btn__text">
