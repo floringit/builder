@@ -6,4 +6,3 @@ Route::get('/editor', 'Builder\BuilderController@edit');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');

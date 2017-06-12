@@ -16,7 +16,7 @@ class CreateVersionsTable extends Migration
         Schema::create('versions', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->tinyInteger('deleted')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });

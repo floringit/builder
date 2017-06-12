@@ -3,16 +3,21 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class Page extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     /**
      * The attributes that are mass assignable.
      *
      * @var array
      */
     protected $fillable = [
-        'user_id', 'website_id', 'theme_id', 'type_id', 'name', 'slug', 'deleted', 'created_at', 'updated_at',
+        'user_id', 'website_id', 'theme_id', 'type_id', 'name', 'slug', 'created_at', 'updated_at',
     ];
 
     public function owner()

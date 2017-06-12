@@ -23,7 +23,7 @@ class CreateWebsitesTable extends Migration
             $table->index('category_id', 'websites_categories_wcid_index');
 
             $table->string('name', 155);
-            $table->tinyInteger('deleted')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });

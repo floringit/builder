@@ -17,7 +17,7 @@ class CreatePageTypesTable extends Migration
             $table->increments('id');
 
             $table->string('key', 155);
-            $table->tinyInteger('deleted')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });

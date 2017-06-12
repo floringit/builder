@@ -31,7 +31,7 @@ class CreateContentsTable extends Migration
             $table->tinyInteger('type')->default(0);
             $table->tinyInteger('order')->default(0);
             $table->text('content');
-            $table->tinyInteger('deleted')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });

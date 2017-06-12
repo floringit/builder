@@ -3,9 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class WebsiteCategory extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     /**
      * The table associated with the model.
      *
@@ -19,7 +24,7 @@ class WebsiteCategory extends Model
      * @var array
      */
     protected $fillable = [
-        'key', 'deleted', 'created_at', 'updated_at',
+        'key', 'created_at', 'updated_at',
     ];
 
     public function websites()

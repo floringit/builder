@@ -30,7 +30,7 @@ class CreatePagesTable extends Migration
 
             $table->string('name', 155);
             $table->string('slug', 155);
-            $table->tinyInteger('deleted')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });

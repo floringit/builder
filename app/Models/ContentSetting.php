@@ -3,9 +3,14 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
 
 class ContentSetting extends Model
 {
+    use SoftDeletes;
+
+    protected $dates = ['deleted_at'];
+
     /**
      * The table associated with the model.
      *
@@ -19,6 +24,6 @@ class ContentSetting extends Model
      * @var array
      */
     protected $fillable = [
-        'user_id', 'content_id', 'name', 'value', 'deleted', 'created_at', 'updated_at',
+        'user_id', 'content_id', 'name', 'value', 'created_at', 'updated_at',
     ];
 }

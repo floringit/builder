@@ -24,7 +24,7 @@ class CreateContentSettingsTable extends Migration
 
             $table->string('name', 155);
             $table->text('value');
-            $table->tinyInteger('deleted')->default(0);
+            $table->softDeletes();
 
             $table->timestamps();
         });

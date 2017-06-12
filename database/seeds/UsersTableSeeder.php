@@ -12,7 +12,6 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         DB::table('users')->insert([
-            'role_id' => 0,
             'username' => 'florin',
             'name' => 'Florin Floria',
             'email' => 'florintesting@gmail.com',

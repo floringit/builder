@@ -3,12 +3,15 @@
 namespace App\Models;
 
 use App\Traits\UserTrait;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
 class User extends Authenticatable
 {
-    use Notifiable, UserTrait;
+    use Notifiable, UserTrait, SoftDeletes;
+
+    protected $dates = ['deleted_at'];
 
     /**
      * The attributes that are mass assignable.
@@ -16,7 +19,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-       'role_id', 'username', 'name', 'email', 'password', 'deleted', 'created_at', 'updated_at',
+       'role_id', 'username', 'name', 'email', 'password', 'created_at', 'updated_at',
     ];
 
     /**
