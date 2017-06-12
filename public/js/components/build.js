@@ -5,6 +5,9 @@ var Ad = new Vue({
     el: ".main-container",
 
     data: {
+        name: null,
+        category: 1,
+        completed: false,
     },
 
     beforeMount: function() {
@@ -17,9 +20,20 @@ var Ad = new Vue({
 
     updated: function() {
         var vm = this;
-        console.log("---update");
+
+        if (vm.name && vm.category && !vm.completed) {
+            vm.makeCompleted();
+        } else if (!vm.name || !vm.category) {
+            vm.completed = false;
+        }
     },
 
     methods: {
+        makeCompleted: function() {
+            var vm = this;
+
+            vm.completed = true;
+            console.log("---completed");
+        }
     }
 });

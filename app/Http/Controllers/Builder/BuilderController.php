@@ -5,15 +5,30 @@ namespace App\Http\Controllers\Builder;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\App;
 
+use App\Services\WebsiteCategoryService;
+
 class BuilderController extends Controller
 {
-    public function __construct() {
-//        App::setLocale('ro');
+    protected $websiteCategoryService;
+
+    public function __construct(
+        WebsiteCategoryService $websiteCategoryService
+    )
+    {
+        App::setLocale('ro');
+        $this->websiteCategoryService = $websiteCategoryService;
     }
 
     public function index()
     {
-        return view('builder.index', []);
+        $categories = $this->websiteCategoryService->getAll(0)->toArray();
+
+        return view('builder.index', [
+            'jss' => [
+                'components/build.js'
+            ],
+            'categories' => $categories
+        ]);
     }
 
     public function edit()

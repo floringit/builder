@@ -17,6 +17,7 @@ header {
 
 #theme-section {
     padding-top: 25px;
+    display: none;
 }
 
 .starting-theme {
@@ -72,6 +73,10 @@ a.logo-text h3 {
     font-size: 20px;
     height: 40px;
     padding: 0 5px;
+}
+
+#website-info select option {
+    color: #424242;
 }
 
 #website-info .input-select::after {

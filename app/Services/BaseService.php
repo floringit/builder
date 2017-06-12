@@ -76,13 +76,13 @@ class BaseService
      */
     public function getAll($perPage = 10)
     {
-        if ($perPage < 1)
-        {
-            $perPage = $this->perPage;
+        if ($perPage < 1) {
+            $data = $this->model::all();
+        } else {
+            $data = $this->model::paginate($perPage);
+            $data->withPath($this->path . "?per_page={$perPage}");
         }
 
-        $data = $this->model::paginate($perPage);
-        $data->withPath($this->path . "?per_page={$perPage}");
         return $data;
     }
 

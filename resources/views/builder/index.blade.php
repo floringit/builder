@@ -18,18 +18,15 @@
                         {!! Form::open(['url' => '', 'id' => 'website-info', 'class' => 'col-sm-6']) !!}
 
                         <div class="form-group">
-                            {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Website name']) !!}
+                            {!! Form::text('name', '', ['class' => 'form-control', 'placeholder' => 'Website name', 'v-model' => 'name']) !!}
                         </div>
 
                         <div class="form-group">
                             <div class="input-select">
-                                <select name="category" class="form-control" placeholder="Category">
-                                    <option selected="" value="">Category</option>
-                                    <option value="0">Real Estate Agency</option>
-                                    <option value="1">Real Estate Agent</option>
-                                    <option value="2">Rezidential Area</option>
-                                    <option value="3">Real Estate Attorney</option>
-                                    <option value="4">Real Estate Consultant</option>
+                                <select name="category" class="form-control" placeholder="Category" v-model="category">
+                                    @foreach ($categories as $category)
+                                        <option value="{{ $category['id'] }}">{{ __('website_categories.' . $category['key']) }}</option>
+                                    @endforeach
                                 </select>
                             </div>
                         </div>
@@ -37,7 +34,7 @@
                         {!! Form::close() !!}
 
                         <br>
-                        <p class="lead col-xs-12">Thank you Florin, now you will have to choose a starting theme<br>
+                        <p class="lead col-xs-12 hide">Thank you Florin, now you will have to choose a starting theme<br>
                             or you can build the website from scratch.<br> <a href="#" class="pull-right">NEXT</a></p>
 
                         {{--<a class="btn btn--primary type--uppercase" href="#">--}}
