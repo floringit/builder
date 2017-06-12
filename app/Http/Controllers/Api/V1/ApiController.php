@@ -74,17 +74,20 @@ class ApiController extends Controller
      */
     public function update(Request $request, $id)
     {
+        DB::beginTransaction();
         $this->beforeUpdate($request);
 
         // validate request data
         $validator = $this->service->validator($request->all());
 
         if ($validator->fails()) {
+            DB::rollback();
             return response()->apiError(config('constants.ERROR_VALIDATION'), __('validation.error'), 422, $validator->errors());
         }
 
         $entity = $this->service->store($request->all(), $id);
         $this->afterUpdate($entity);
+        DB::commit();
 
         return response()->api($entity);
 
@@ -98,9 +101,11 @@ class ApiController extends Controller
      */
     public function destroy($id)
     {
+        DB::beginTransaction();
         $this->beforeDelete();
         $entity = $this->service->delete($id);
         $this->afterDelete($entity);
+        DB::commit();
 
         return response()->api(['ok' => true]);
     }
